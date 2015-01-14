@@ -44,6 +44,11 @@ module Locomotive
       else
         flash[:alert] = exception.message
 
+        if current_site
+          membership = current_site.memberships.where(account_id: current_locomotive_account.id).first
+        end
+
+        redirect_to "/" and return if membership && membership.role == "user"
         redirect_to pages_path
       end
     end
