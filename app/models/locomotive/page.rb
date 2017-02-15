@@ -34,6 +34,7 @@ module Locomotive
     index site_id:    1
     index parent_id:  1
     index fullpath:   1, site_id: 1
+    index depth: 1, position: 1
 
     ## behaviours ##
     slugify_from        :title
